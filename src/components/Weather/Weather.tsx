@@ -9,6 +9,7 @@ export const Weather = () => {
   const [hum, setHum] = useState();
   const [clouds, setClouds] = useState();
   const [city, setCity] = useState();
+  const [wind, setWind] = useState();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -34,6 +35,9 @@ export const Weather = () => {
 
           const clouds = data.data.weather[0].description;
           setClouds(clouds);
+
+          const wind = data.data.wind.speed;
+          setWind(wind);
         });
     });
   });
@@ -74,6 +78,13 @@ export const Weather = () => {
         sx={{ fontSize: "0.8rem", mt: ".2rem" }}
       >
         Clouds: {clouds}
+      </Typography>
+      <Typography
+        variant="h6"
+        align="center"
+        sx={{ fontSize: "0.8rem", mt: ".2rem" }}
+      >
+        Wind speed: {wind}m/sec
       </Typography>
 
       {/* {articles.length !== 0 && <Article article={articles[0]} />} */}
