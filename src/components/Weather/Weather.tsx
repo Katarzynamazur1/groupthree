@@ -47,42 +47,42 @@ export const Weather = () => {
       <Typography
         variant="h4"
         align="center"
-        sx={{ fontSize: "1.01rem", mt: ".8rem", mb: ".8rem" }}
+        sx={{ fontSize: "1rem", mt: ".8rem", mb: ".8rem" }}
       >
         Today's weather condition
       </Typography>
       <Typography
         variant="h6"
         align="center"
-        sx={{ fontSize: "0.8rem", mt: ".2rem" }}
+        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
       >
-        Your location: {city}
+        Location: {city}
       </Typography>
       <Typography
         variant="h6"
         align="center"
-        sx={{ fontSize: "0.8rem", mt: ".2rem" }}
+        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
       >
         Temperature: {temp}°C
       </Typography>
       <Typography
         variant="h6"
         align="center"
-        sx={{ fontSize: "0.8rem", mt: ".2rem" }}
+        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
       >
         Humidity: {hum}%
       </Typography>
       <Typography
         variant="h6"
         align="center"
-        sx={{ fontSize: "0.8rem", mt: ".2rem" }}
+        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
       >
         Clouds: {clouds}
       </Typography>
       <Typography
         variant="h6"
         align="center"
-        sx={{ fontSize: "0.8rem", mt: ".2rem" }}
+        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
       >
         Wind speed: {wind}m/sec
       </Typography>
