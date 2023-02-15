@@ -33,20 +33,11 @@ export const Weather = () => {
         .then((data) => {
           console.log(data);
 
-          const city = data.data.name;
-          setCity(city);
-
-          const temp = data.data.main.temp;
-          setTemp(temp);
-
-          const hum = data.data.main.humidity;
-          setHum(hum);
-
-          const clouds = data.data.weather[0].description;
-          setClouds(clouds);
-
-          const wind = data.data.wind.speed;
-          setWind(wind);
+          setCity(data.data.name);
+          setTemp(data.data.main.temp);
+          setHum(data.data.main.humidity);
+          setClouds(data.data.weather[0].description);
+          setWind(data.data.wind.speed);
         });
     });
   });
