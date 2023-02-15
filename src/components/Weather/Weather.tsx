@@ -4,6 +4,15 @@ import axios from "axios";
 
 import React from "react";
 
+const key: string = process.env.REACT_APP_OPEN_WEATHER_API_KEY as string;
+if (key === undefined) {
+  throw new Error(
+    "No Open Weather API Key defined - ensure you set a variable called REACT_APP_OPEN_WEATHER_API_KEY"
+  );
+}
+
+const keyQuery = `appid=${key}`;
+
 export const Weather = () => {
   const [temp, setTemp] = useState();
   const [hum, setHum] = useState();
@@ -19,7 +28,7 @@ export const Weather = () => {
 
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=46079d357e9a2c65ff03fab0ab51f02c`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&${keyQuery}`
         )
         .then((data) => {
           console.log(data);
