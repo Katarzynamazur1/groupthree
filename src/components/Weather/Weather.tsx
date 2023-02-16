@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import axios from "axios";
-
 import React from "react";
 
 const key: string = process.env.REACT_APP_OPEN_WEATHER_API_KEY as string;
@@ -44,48 +43,57 @@ export const Weather = () => {
 
   return (
     <>
-      <Typography
-        variant="h4"
-        align="center"
-        sx={{ fontSize: "1rem", mt: ".8rem", mb: ".8rem" }}
-      >
-        Today's weather condition
-      </Typography>
-      <Typography
-        variant="h6"
-        align="center"
-        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
-      >
-        Location: {city}
-      </Typography>
-      <Typography
-        variant="h6"
-        align="center"
-        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
-      >
-        Temperature: {temp}°C
-      </Typography>
-      <Typography
-        variant="h6"
-        align="center"
-        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
-      >
-        Humidity: {hum}%
-      </Typography>
-      <Typography
-        variant="h6"
-        align="center"
-        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
-      >
-        Clouds: {clouds}
-      </Typography>
-      <Typography
-        variant="h6"
-        align="center"
-        sx={{ fontSize: "0.6rem", mt: ".2rem" }}
-      >
-        Wind speed: {wind}m/sec
-      </Typography>
+      <div className="footer">
+        <table style={{ width: "100%" }} align="center">
+          <tbody>
+            <tr>
+              <td>
+                <Typography
+                  variant="h6"
+                  align="left"
+                  sx={{ fontSize: "0.6rem", mt: ".2rem" }}
+                >
+                  <h1>{city}</h1>
+                  <h3> Temp: {temp}°C</h3>
+                </Typography>
+              </td>
+              <td>
+                <Typography
+                  variant="h6"
+                  align="right"
+                  sx={{ fontSize: "0.6rem", mt: ".1rem" }}
+                >
+                  <p> Humidity: {hum}% </p>
+                  <p> Clouds: {clouds}</p>
+                  <p> Wind: {wind}m/sec</p>
+                </Typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* <Typography
+          variant="h6"
+          align="center"
+          sx={{ fontSize: "0.8rem", mt: ".2rem" }}
+        >
+          {city}
+        </Typography>
+        <Typography
+          variant="h6"
+          align="center"
+          sx={{ fontSize: "0.6rem", mt: ".2rem" }}
+        >
+          Temp: {temp}°C Clouds: {clouds}
+        </Typography>
+        <Typography
+          variant="h6"
+          align="center"
+          sx={{ fontSize: "0.6rem", mt: ".2rem" }}
+        >
+          Humidity: {hum}% Wind: {wind}m/sec
+        </Typography> */}
+      </div>
 
       {/* {articles.length !== 0 && <Article article={articles[0]} />} */}
       {/* {articles.length !== 0 &&
