@@ -3,13 +3,29 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 const Currency = () => {
-  const inCurrenceData = "chf";
-  const outCurrenceData = "usd";
-  const startAmoutn = 100;
+  const inOptions = [
+    { value: "chf", text: "Frank Szwajcarski" },
+    { value: "usd", text: "Dolar Amerykański" },
+    { value: "eur", text: "Euro" },
+    { value: "gbp", text: "Funt Szterling" },
+    { value: "jpy", text: "Jen" },
+  ];
+
+  const outOptions = [
+    { value: "chf", text: "Frank Szwajcarski" },
+    { value: "usd", text: "Dolar Amerykański" },
+    { value: "eur", text: "Euro" },
+    { value: "gbp", text: "Funt Szterling" },
+    { value: "jpy", text: "Jen" },
+  ];
+  const [inSelected, setInSelected] = useState(inOptions[0].value);
+  const [outSelected, setOutSelected] = useState(inOptions[0].value);
+
+  const [startAmount, setStartAmuount] = useState("0");
   const [inCurrency, setInCurrency] = useState(0);
   useEffect(() => {
     axios
-      .get(`http://api.nbp.pl/api/exchangerates/rates/a/${inCurrenceData}/?`)
+      .get(`http://api.nbp.pl/api/exchangerates/rates/a/${inSelected}/?`)
       .then((inCurrencyData) =>
         setInCurrency(inCurrencyData.data.rates[0].mid)
       );
@@ -19,27 +35,53 @@ const Currency = () => {
   const [outCurrency, setOutCurrency] = useState(0);
   useEffect(() => {
     axios
-      .get(`http://api.nbp.pl/api/exchangerates/rates/a/${outCurrenceData}/?`)
+      .get(`http://api.nbp.pl/api/exchangerates/rates/a/${outSelected}/?`)
       .then((outCurrencyData) =>
         setOutCurrency(outCurrencyData.data.rates[0].mid)
       );
   }, []);
 
-  //   console.log(inCurrency);
-  //   console.log(outCurrency);
+  console.log(inSelected);
+  console.log(outSelected);
 
-  const finalCash = (startAmoutn * inCurrency) / outCurrency;
+  const finalCash = (parseInt(startAmount) * inCurrency) / outCurrency;
 
   return (
     <div>
       <p>
-        {startAmoutn} {inCurrenceData}
+        <input
+          type="number"
+          value={startAmount}
+          onChange={(e) => setStartAmuount(e.target.value)}
+        ></input>
+        <select
+          value={inSelected}
+          onChange={(el) => setInSelected(el.target.value)}
+        >
+          {inOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.text}
+            </option>
+          ))}
+        </select>
+        = {finalCash.toFixed(2)}
+        <select
+          value={outSelected}
+          onChange={(el) => setOutSelected(el.target.value)}
+        >
+          {inOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.text}
+            </option>
+          ))}
+        </select>
       </p>
-      <p>=</p>
-      <p></p>
-      <p>
-        {finalCash.toFixed(2)} {outCurrenceData}
-      </p>
+      {/* <hr />
+      <p>chf - Frank Szwajcarski</p>
+      <p>usd - Dolar Amerykański</p>
+      <p>eur - Euro</p>
+      <p>gbp - Funt Szterling </p>
+      <p>jpy - Jen</p> */}
     </div>
   );
 };

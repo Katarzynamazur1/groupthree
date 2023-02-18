@@ -17,7 +17,7 @@ function App() {
           <Route path="/exchange" element={<Currency />} />
         </Routes>
 
-        
+        <Currency />
 
         <Weather />
       </div>
