@@ -10,34 +10,34 @@ const HomePage = () => {
   return (
     <>
       <Typography
-        align="center"
         variant="h1"
         component="div"
         sx={{ fontSize: 40, textAlign: "center", mt:2}}
       >
         Witaj w <br /> TWOIM kantorze
       </Typography>
-        <div style={{columns:2, margin: 20, justifyItems:"center", alignContent: "center"}}>
-            <div style={{margin:2}}>
-                <Typography variant='h2' sx={{fontSize:20, textAlign:"center"}}>Exchange your money!
-                </Typography>
-                <Link to='/'>
-                    <Fab color="success" sx={{mt:2}}>
+        <div>
+        <div style={{marginTop: 20, display:'flex', justifyContent:"center"}}>
+            <Link to='/exchange'>
+                <Fab color="success" sx={{margin:2}}>
                         <CurrencyExchangeIcon/>
-                    </Fab>
-                </Link>
+                </Fab>
+            </Link>
+            <Typography variant='h2' sx={{fontSize:20, textAlign:"left", marginTop:3.5}}>Exchange your money!
+            </Typography>  
             </div>
-            <div style={{margin:2}}>
-                <Typography variant='h2' sx={{fontSize:20, textAlign:"center"}}>Kup nam kawę :)
-                </Typography>
-                <Link to='/Thanks'>
-                    <Fab color="success" sx={{mt:2,  alignContent:"center"}}> 
+            <div style={{marginTop: 20, display:'flex', justifyContent:"center"}}>
+            <Link to='/Thanks' >
+                    <Fab color="success" sx={{margin:2 }}> 
                         <CoffeeIcon /> 
                     </Fab>
                 </Link>
+                <Typography variant='h2' sx={{fontSize:20, textAlign:"left", marginTop:3.5}}>Buy us coffee :)
+                </Typography>
+                
             </div>
-        </div>
-    </>
+            </div>
+                </>
   );
 };
 
