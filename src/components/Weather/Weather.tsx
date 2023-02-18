@@ -4,7 +4,7 @@ import axios from "axios";
 import React from "react";
 import { padding } from "@mui/system";
 
-const key: string = "46079d357e9a2c65ff03fab0ab51f02c" as string;
+const key: string = "46079d357e9a2c65ff03fab0ab51f02c";
 if (key === undefined) {
   throw new Error(
     "No Open Weather API Key defined - ensure you set a variable called REACT_APP_OPEN_WEATHER_API_KEY"
