@@ -19,7 +19,7 @@ const Currency = () => {
     { value: "jpy", text: "Jen" },
   ];
   const [inSelected, setInSelected] = useState(inOptions[0].value);
-  const [outSelected, setOutSelected] = useState(inOptions[0].value);
+  const [outSelected, setOutSelected] = useState(outOptions[0].value);
 
   const [startAmount, setStartAmuount] = useState("0");
   const [inCurrency, setInCurrency] = useState(0);
@@ -41,7 +41,7 @@ const Currency = () => {
   }, []);
 
   console.log(inSelected);
-  //
+
   console.log(outSelected);
 
   const finalCash = (parseInt(startAmount) * inCurrency) / outCurrency;
