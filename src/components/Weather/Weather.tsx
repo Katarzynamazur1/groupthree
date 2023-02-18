@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import axios from "axios";
 import React from "react";
-import { padding } from "@mui/system";
 
-const key: string = "46079d357e9a2c65ff03fab0ab51f02c" as string;
+const key: string = "46079d357e9a2c65ff03fab0ab51f02c";
 if (key === undefined) {
   throw new Error(
     "No Open Weather API Key defined - ensure you set a variable called REACT_APP_OPEN_WEATHER_API_KEY"
@@ -14,7 +13,6 @@ if (key === undefined) {
 const keyQuery = `appid=${key}`;
 
 export const Weather = () => {
-  const [data, setData] = useState({});
   const [temp, setTemp] = useState();
   const [hum, setHum] = useState();
   const [clouds, setClouds] = useState();
@@ -24,9 +22,11 @@ export const Weather = () => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-      console.log(lat, lon);
+      let lat = position.coords.latitude;
+
+      let lon = position.coords.longitude;
+
+      // console.log(lat, lon);
 
       axios
         .get(
@@ -36,9 +36,10 @@ export const Weather = () => {
           console.log(data);
 
           setCity(data.data.name);
+
           setTemp(data.data.main.temp);
           setHum(data.data.main.humidity);
-          setClouds(data.data.weather[0].description);
+          setClouds(data.data.weather[0].main);
           setWind(data.data.wind.speed);
 
           const url = `http://openweathermap.org/img/w/${data.data.weather[0].icon}.png`;
@@ -50,7 +51,53 @@ export const Weather = () => {
   return (
     <>
       <div className="footer">
-        <table style={{ width: "100%" }} align="center">
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <span>{city} </span>
+          </Grid>
+          <Grid item xs={3}>
+            <div
+              style={{
+                fontSize: ".5rem",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <img src={url} width="40" height="40"></img>
+              <span>{clouds}</span>
+            </div>
+          </Grid>
+          <Grid item xs={3}>
+            <div
+              style={{
+                textAlign: "center",
+                alignItems: "center",
+                fontSize: "1rem",
+                fontWeight: 100,
+                display: "block",
+                flexDirection: "column",
+              }}
+            >
+              <svg
+                viewBox="0 0 320 512"
+                fill="currentColor"
+                height="1.2em"
+                width="1.2em"
+              >
+                <path d="M160 64c-26.5 0-48 21.5-48 48v164.5c0 17.3-7.1 31.9-15.3 42.5C86.2 332.6 80 349.5 80 368c0 44.2 35.8 80 80 80s80-35.8 80-80c0-18.5-6.2-35.4-16.7-48.9-8.2-10.6-15.3-25.2-15.3-42.5V112c0-26.5-21.5-48-48-48zM48 112C48 50.2 98.1 0 160 0s112 50.1 112 112v164.5c0 .1.1.3.2.6.2.6.8 1.6 1.7 2.8 18.9 24.4 30.1 55 30.1 88.1 0 79.5-64.5 144-144 144S16 447.5 16 368c0-33.2 11.2-63.8 30.1-88.1.9-1.2 1.5-2.2 1.7-2.8.1-.3.2-.5.2-.6V112zm160 256c0 26.5-21.5 48-48 48s-48-21.5-48-48c0-20.9 13.4-38.7 32-45.3V200c0-8.8 7.2-16 16-16s16 7.2 16 16v122.7c18.6 6.6 32 24.4 32 45.3z" />
+              </svg>
+              <p>{temp} </p>
+            </div>
+          </Grid>
+          <Grid item xs={3}>
+            <div>xs=8</div>
+          </Grid>
+          <Grid item xs={3}>
+            <div>xs=8</div>
+          </Grid>
+        </Grid>
+
+        {/* <table style={{ width: "100%" }} align="center">
           <thead>
             <tr>
               <th>
@@ -61,7 +108,7 @@ export const Weather = () => {
           <tbody>
             <tr>
               <td>
-                <img src={url} width="40" height="40"></img>
+                <img src={url} width="60" height="60"></img>
                 <p>{clouds}</p>
               </td>
 
@@ -101,11 +148,11 @@ export const Weather = () => {
                   </svg>
                   {wind} m/sec
                 </p>
-                {/* </Typography> */}
+                {/* </Typography> 
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> */}
       </div>
 
       {/* {articles.length !== 0 && <Article article={articles[0]} />} */}
