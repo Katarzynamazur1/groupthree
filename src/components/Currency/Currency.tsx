@@ -3,10 +3,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 const Currency = () => {
+    
   useEffect(() => {
     axios
       .get(`http://api.nbp.pl/api/exchangerates/rates/a/usd/?`)
-      .then((inCurrencyData) => console.log(inCurrencyData.data));
+      .then((inCurrencyData) => console.log(inCurrencyData.data.rates[0].mid));
   }, []);
 
   //   const [finalCash, setFinalCash] = useState(0);
