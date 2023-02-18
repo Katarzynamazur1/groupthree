@@ -27,7 +27,7 @@ const HomePage = () => {
             </Typography>  
             </div>
             <div style={{marginTop: 20, display:'flex', justifyContent:"center"}}>
-            <Link to='/Thanks' >
+            <Link to='/thx' >
                     <Fab color="success" sx={{margin:2 }}> 
                         <CoffeeIcon /> 
                     </Fab>

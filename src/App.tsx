@@ -6,6 +6,7 @@ import Weather from "./components/Weather/Weather";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import Currency from "./components/Currency/Currency";
+import Thanks from "./components/Thanks/Thanks";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/exchange" element={<Currency />} />
+          <Route path="/thx" element={<Thanks />} />
         </Routes>
 
         <Weather />
