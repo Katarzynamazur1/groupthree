@@ -12,7 +12,7 @@ const Currency = () => {
   ];
 
   const outOptions = [
-    { value: "usd", text: "Dolar Amerykański" },
+    { value: "eur", text: "Dolar Amerykański" },
     { value: "chf", text: "Frank Szwajcarski" },
     { value: "eur", text: "Euro" },
     { value: "gbp", text: "Funt Szterling" },
@@ -22,6 +22,7 @@ const Currency = () => {
   const [outSelected, setOutSelected] = useState(outOptions[0].value);
 
   const [startAmount, setStartAmuount] = useState("0");
+
   const [inCurrency, setInCurrency] = useState(0);
   useEffect(() => {
     axios
@@ -48,34 +49,32 @@ const Currency = () => {
 
   return (
     <div>
-      <p>
-        <input
-          type="number"
-          value={startAmount}
-          onChange={(e) => setStartAmuount(e.target.value)}
-        ></input>
-        <select
-          value={inSelected}
-          onChange={(el) => setInSelected(el.target.value)}
-        >
-          {inOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.text}
-            </option>
-          ))}
-        </select>
-        = {finalCash.toFixed(2)}
-        <select
-          value={outSelected}
-          onChange={(el) => setOutSelected(el.target.value)}
-        >
-          {outOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.text}
-            </option>
-          ))}
-        </select>
-      </p>
+      <input
+        type="number"
+        value={startAmount}
+        onChange={(e) => setStartAmuount(e.target.value)}
+      ></input>
+      <select
+        value={inSelected}
+        onChange={(el) => setInSelected(el.target.value)}
+      >
+        {inOptions.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.text}
+          </option>
+        ))}
+      </select>
+      = {finalCash.toFixed(2)}
+      <select
+        value={outSelected}
+        onChange={(el) => setOutSelected(el.target.value)}
+      >
+        {outOptions.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.text}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
