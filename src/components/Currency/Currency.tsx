@@ -41,6 +41,7 @@ const Currency = () => {
   }, []);
 
   console.log(inSelected);
+  //
   console.log(outSelected);
 
   const finalCash = (parseInt(startAmount) * inCurrency) / outCurrency;
