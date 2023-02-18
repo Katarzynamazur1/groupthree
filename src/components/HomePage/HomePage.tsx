@@ -4,6 +4,7 @@ import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import Button from "@mui/material/Button";
 import CoffeeIcon from '@mui/icons-material/Coffee';
 import { Link } from 'react-router-dom';
+import { Fab } from '@mui/material';
 
 const HomePage = () => {
   return (
@@ -11,14 +12,16 @@ const HomePage = () => {
         <Typography variant='h1' component='div' mt={2} sx={{fontSize:40, textAlign:"center"}}>
 Witaj w <br /> TWOIM kantorze
         </Typography>
-        <div style={{alignContent:"center"}}>
-        <Typography>Exchange your money!</Typography>
+        <div style={{alignContent:"center", margin: 20}}>
+        <Typography variant='h2' sx={{fontSize:20, my:2}}>Exchange your money!</Typography>
             <Link to='/'>
-                <Button variant="contained" sx={{}} startIcon={<CurrencyExchangeIcon />} />
+                <Fab color="success" >
+                    <CurrencyExchangeIcon/>
+                </Fab>
             </Link>
-        <Typography>Kup nam kawę :)</Typography>
+        <Typography variant='h2' sx={{fontSize:20, my:2}}>Kup nam kawę :)</Typography>
             <Link to='/Thanks'>
-                <Button variant="contained" sx={{}} startIcon={<CoffeeIcon/>} />
+                <Fab color="success"> <CoffeeIcon /> </Fab>
             </Link>
         </div>
         </>
