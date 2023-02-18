@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 const Currency = () => {
-  const [inCurrency, setInCurrency] = useState();
+  const [inCurrency, setInCurrency] = useState(0);
   useEffect(() => {
     axios
       .get(`http://api.nbp.pl/api/exchangerates/rates/a/usd/?`)
@@ -13,7 +13,7 @@ const Currency = () => {
   }, []);
   //   console.log(inCurrency);
 
-  const [outCurrency, setOutCurrency] = useState();
+  const [outCurrency, setOutCurrency] = useState(0);
   useEffect(() => {
     axios
       .get(`http://api.nbp.pl/api/exchangerates/rates/a/chf/?`)
@@ -25,10 +25,13 @@ const Currency = () => {
   //   console.log(inCurrency);
   //   console.log(outCurrency);
 
+  const finalCash = (100 * inCurrency) / outCurrency;
+
   return (
     <div>
       <p>{inCurrency}</p>
       <p>{outCurrency}</p>
+      <p>{finalCash}</p>
     </div>
   );
 };
