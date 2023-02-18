@@ -12,8 +12,8 @@ const Currency = () => {
   ];
 
   const outOptions = [
-    { value: "chf", text: "Frank Szwajcarski" },
     { value: "usd", text: "Dolar Amerykański" },
+    { value: "chf", text: "Frank Szwajcarski" },
     { value: "eur", text: "Euro" },
     { value: "gbp", text: "Funt Szterling" },
     { value: "jpy", text: "Jen" },
@@ -30,7 +30,6 @@ const Currency = () => {
         setInCurrency(inCurrencyData.data.rates[0].mid)
       );
   }, []);
-  //   console.log(inCurrency);
 
   const [outCurrency, setOutCurrency] = useState(0);
   useEffect(() => {
@@ -69,19 +68,13 @@ const Currency = () => {
           value={outSelected}
           onChange={(el) => setOutSelected(el.target.value)}
         >
-          {inOptions.map((option) => (
+          {outOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.text}
             </option>
           ))}
         </select>
       </p>
-      {/* <hr />
-      <p>chf - Frank Szwajcarski</p>
-      <p>usd - Dolar Amerykański</p>
-      <p>eur - Euro</p>
-      <p>gbp - Funt Szterling </p>
-      <p>jpy - Jen</p> */}
     </div>
   );
 };
