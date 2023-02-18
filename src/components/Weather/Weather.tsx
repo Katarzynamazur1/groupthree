@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { Grid, Typography } from "@mui/material";
 import axios from "axios";
 import React from "react";
-import { AlignHorizontalCenter } from "@mui/icons-material";
-import { display } from "@mui/system";
 
 const key: string = "46079d357e9a2c65ff03fab0ab51f02c";
 if (key === undefined) {
@@ -74,7 +72,7 @@ export const Weather = () => {
                   fontSize: ".6rem",
                 }}
               >
-                <img src={url} width="40" height="40"></img>
+                <img src={url} width="35" height="35"></img>
 
                 {clouds}
               </p>
