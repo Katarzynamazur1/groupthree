@@ -12,7 +12,7 @@ const Currency = () => {
   ];
 
   const outOptions = [
-    { value: "eur", text: "Dolar Amerykański" },
+    { value: "usd", text: "Dolar Amerykański" },
     { value: "chf", text: "Frank Szwajcarski" },
     { value: "eur", text: "Euro" },
     { value: "gbp", text: "Funt Szterling" },
@@ -30,7 +30,7 @@ const Currency = () => {
       .then((inCurrencyData) =>
         setInCurrency(inCurrencyData.data.rates[0].mid)
       );
-  }, []);
+  }, [inOptions]);
 
   const [outCurrency, setOutCurrency] = useState(0);
   useEffect(() => {
@@ -39,7 +39,7 @@ const Currency = () => {
       .then((outCurrencyData) =>
         setOutCurrency(outCurrencyData.data.rates[0].mid)
       );
-  }, []);
+  }, [outOptions]);
 
   console.log(inSelected);
 
