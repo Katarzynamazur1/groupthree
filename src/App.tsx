@@ -9,7 +9,7 @@ import HomePage from "./components/HomePage/HomePage";
 import Currency from "./components/Currency/Currency";
 
 function App() {
-   return (
+  return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
@@ -19,7 +19,6 @@ function App() {
         </Routes>
 
         <Currency />
-        
 
         <Weather />
       </div>
