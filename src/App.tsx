@@ -14,7 +14,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/Exchenge" element={<Currency />} />
+          <Route path="/exchange" element={<Currency />} />
         </Routes>
 
         

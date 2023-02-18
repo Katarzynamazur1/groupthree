@@ -18,7 +18,7 @@ const HomePage = () => {
       </Typography>
         <div>
         <div style={{marginTop: 20, display:'flex', justifyContent:"center"}}>
-            <Link to='/'>
+            <Link to='/exchange'>
                 <Fab color="success" sx={{margin:2}}>
                         <CurrencyExchangeIcon/>
                 </Fab>

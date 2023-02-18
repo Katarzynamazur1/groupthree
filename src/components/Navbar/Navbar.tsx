@@ -18,7 +18,7 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
            Twój Kantor
           </Typography>
-          <Link to='/' 
+          <Link to='/exchange' 
           style={{ textDecoration: "none", color: "white" }}>
           <Button color="inherit" startIcon={< CurrencyExchangeIcon />}>Exchange</Button >
           </Link>
