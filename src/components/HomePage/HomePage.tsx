@@ -1,18 +1,23 @@
-import React from 'react'; 
+import React from "react";
 import Typography from "@mui/material/Typography";
-import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
+import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import Button from "@mui/material/Button";
-import CoffeeIcon from '@mui/icons-material/Coffee';
-import { Link } from 'react-router-dom';
-import { Fab } from '@mui/material';
+import CoffeeIcon from "@mui/icons-material/Coffee";
+import { Link } from "react-router-dom";
+import { Fab } from "@mui/material";
 
 const HomePage = () => {
   return (
     <>
-        <Typography variant='h1' component='div' mt={2} sx={{fontSize:40, textAlign:"center"}}>
-Witaj w <br /> TWOIM kantorze
-        </Typography>
-        <div style={{columns:2, margin: 20, justifyItems:"center"}}>
+      <Typography
+        align="center"
+        variant="h1"
+        component="div"
+        sx={{ fontSize: 40, textAlign: "center", mt:2}}
+      >
+        Witaj w <br /> TWOIM kantorze
+      </Typography>
+        <div style={{columns:2, margin: 20, justifyItems:"center", alignContent: "center"}}>
             <div style={{margin:2}}>
                 <Typography variant='h2' sx={{fontSize:20, textAlign:"center"}}>Exchange your money!
                 </Typography>
@@ -32,8 +37,8 @@ Witaj w <br /> TWOIM kantorze
                 </Link>
             </div>
         </div>
-        </>
-  )
-}
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;

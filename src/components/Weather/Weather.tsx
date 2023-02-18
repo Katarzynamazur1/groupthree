@@ -73,7 +73,7 @@ export const Weather = () => {
                 textAlign: "center",
                 alignItems: "center",
                 fontSize: "1rem",
-                fontWeight: 100,
+                fontWeight: '100',
                 display: "block",
                 flexDirection: "column",
               }}
