@@ -14,9 +14,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/Exchenge" element={<Currency />} />
         </Routes>
 
-        <Currency />
+        
 
         <Weather />
       </div>
