@@ -22,7 +22,7 @@ const HomePage = () => {
                 <Typography variant='h2' sx={{fontSize:20, textAlign:"center"}}>Exchange your money!
                 </Typography>
                 <Link to='/'>
-                    <Fab color="success" sx={{mt:2, alignContent:"center"}}>
+                    <Fab color="success" sx={{mt:2}}>
                         <CurrencyExchangeIcon/>
                     </Fab>
                 </Link>
