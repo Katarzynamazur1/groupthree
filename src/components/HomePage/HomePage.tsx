@@ -13,30 +13,30 @@ const HomePage = () => {
         align="center"
         variant="h1"
         component="div"
-        mt={2}
-        sx={{ fontSize: 40, textAlign: "center" }}
+        sx={{ fontSize: 40, textAlign: "center", mt:2}}
       >
         Witaj w <br /> TWOIM kantorze
       </Typography>
-      <div style={{ alignContent: "center", margin: 20 }}>
-        <Typography align="center" variant="h2" sx={{ fontSize: 20, my: 2 }}>
-          <p> Exchange your money!</p>
-          <Link to="/">
-            <Fab color="success">
-              <CurrencyExchangeIcon />
-            </Fab>
-          </Link>
-        </Typography>
-
-        <Typography align="center" variant="h2" sx={{ fontSize: 20, my: 2 }}>
-          <p> Kup nam kawę :)</p>
-          <Link to="/Thanks">
-            <Fab color="success">
-              <CoffeeIcon />
-            </Fab>
-          </Link>
-        </Typography>
-      </div>
+        <div style={{columns:2, margin: 20, justifyItems:"center", alignContent: "center"}}>
+            <div style={{margin:2}}>
+                <Typography variant='h2' sx={{fontSize:20, textAlign:"center"}}>Exchange your money!
+                </Typography>
+                <Link to='/'>
+                    <Fab color="success" sx={{mt:2}}>
+                        <CurrencyExchangeIcon/>
+                    </Fab>
+                </Link>
+            </div>
+            <div style={{margin:2}}>
+                <Typography variant='h2' sx={{fontSize:20, textAlign:"center"}}>Kup nam kawę :)
+                </Typography>
+                <Link to='/Thanks'>
+                    <Fab color="success" sx={{mt:2,  alignContent:"center"}}> 
+                        <CoffeeIcon /> 
+                    </Fab>
+                </Link>
+            </div>
+        </div>
     </>
   );
 };
