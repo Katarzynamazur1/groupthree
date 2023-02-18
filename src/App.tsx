@@ -8,20 +8,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import Currency from "./components/Currency/Currency";
 
-
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <Navbar />
+      <div className="App">
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
 
-<Currency />
-      <Weather />
-    </div>
+        <Currency />
+
+        <Weather />
+      </div>
     </BrowserRouter>
   );
 }
