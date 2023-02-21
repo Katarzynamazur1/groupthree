@@ -1,4 +1,4 @@
-import { colors } from "@mui/material";
+import { colors, Table } from "@mui/material";
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -49,30 +49,48 @@ const Currency = () => {
   const finalCash = (parseInt(startAmount) * inCurrency) / outCurrency;
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        margin: "10px",
-      }}
-    >
-      <p
-        style={{
-          fontWeight: "lighter",
-          fontSize: "1.2rem",
-
-
-          marginTop: "50px",
-          textAlign: "center",
-          color: "grey",
-        }}
-      >
-        KONWERTER WALUT
-      </p>
-
+    <>
       <span
         style={{
+          display: "flex",
+          flexWrap: "wrap",
+
+          width: "100%",
+          justifyContent: "center",
+          marginTop: "50px",
+          boxSizing: "border-box",
+          padding: "40px",
+
+          fontSize: "1.1rem",
+
+          textAlign: "center",
+          color: "rgb(146, 146, 146)",
+          margin: "5px",
+          height: "15vh",
+        }}
+      >
+        KONWERTER WALUTOWY
+      </span>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+
+          height: "100vh",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            width: "60vh",
+            height: "150px",
+          }}
+        >
+          {/* <span
+        style={{
           fontSize: ".6rem",
+          width: "40%",
           marginTop: "30px",
           marginBottom: "10px",
           textAlign: "center",
@@ -80,15 +98,26 @@ const Currency = () => {
         }}
       >
         PODAJ KWOTĘ
-      </span>
-      <input
-        type="number"
-        value={startAmount}
-        onChange={(e) => setStartAmuount(e.target.value)}
-      ></input>
-      <span
+      </span> */}
+
+          <input
+            style={{
+              border: "1px solid #d9d9d9",
+              borderRadius: "10px",
+              boxSizing: "border-box",
+              padding: "10px",
+              width: "25vh",
+              height: "10vh",
+              margin: "5px",
+            }}
+            type="number"
+            value={startAmount}
+            onChange={(e) => setStartAmuount(e.target.value)}
+          ></input>
+          {/* <span
         style={{
           fontSize: ".6rem",
+          width: "40%",
           marginTop: "20px",
           marginBottom: "10px",
           textAlign: "center",
@@ -96,19 +125,29 @@ const Currency = () => {
         }}
       >
         WYBIERZ WALUTĘ POCZĄTKOWĄ
-      </span>
-      <select
-        value={inSelected}
-        onChange={(el) => setInSelected(el.target.value)}
-      >
-        {inOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.text}
-          </option>
-        ))}
-      </select>
+      </span> */}
+          <select
+            style={{
+              border: "1px solid #d9d9d9",
+              borderRadius: "10px",
+              boxSizing: "border-box",
+              padding: "10px",
+              height: "10vh",
+              width: "25vh",
 
-      <span
+              margin: "5px",
+            }}
+            value={inSelected}
+            onChange={(el) => setInSelected(el.target.value)}
+          >
+            {inOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.text}
+              </option>
+            ))}
+          </select>
+
+          {/* <span
         style={{
           fontSize: ".6rem",
           marginTop: "20px",
@@ -118,30 +157,48 @@ const Currency = () => {
         }}
       >
         WYBIERZ WALUTĘ KOŃCOWĄ
-      </span>
+      </span> */}
 
-      <select
-        value={outSelected}
-        onChange={(el) => setOutSelected(el.target.value)}
-      >
-        {outOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.text}
-          </option>
-        ))}
-      </select>
-      <p
-        style={{
-          fontSize: "1.5rem",
-          marginTop: "30px",
-          marginBottom: "10px",
-          textAlign: "center",
-          color: "grey",
-        }}
-      >
-        {finalCash.toFixed(2)}
-      </p>
-    </div>
+          <select
+            style={{
+              border: "1px solid #d9d9d9",
+              borderRadius: "10px",
+              boxSizing: "border-box",
+              padding: "10px",
+              width: "25vh",
+              height: "10vh",
+              margin: "5px",
+            }}
+            value={outSelected}
+            onChange={(el) => setOutSelected(el.target.value)}
+          >
+            {outOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.text}
+              </option>
+            ))}
+          </select>
+          <p
+            style={{
+              border: "1px solid #d9d9d9",
+              borderRadius: "10px",
+              boxSizing: "border-box",
+              padding: "10px",
+              width: "25vh",
+              fontSize: "1.5rem",
+              marginTop: "30px",
+              marginBottom: "10px",
+              textAlign: "center",
+              color: "grey",
+              margin: "5px",
+              height: "10vh",
+            }}
+          >
+            {finalCash.toFixed(2)}
+          </p>
+        </div>
+      </div>
+    </>
   );
 };
 
