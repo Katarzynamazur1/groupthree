@@ -1,22 +1,23 @@
+import { colors } from "@mui/material";
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 
 const Currency = () => {
   const inOptions = [
-    { value: "chf", text: "Frank Szwajcarski" },
-    { value: "usd", text: "Dolar Amerykański" },
-    { value: "eur", text: "Euro" },
-    { value: "gbp", text: "Funt Szterling" },
-    { value: "jpy", text: "Jen" },
+    { value: "chf", text: "CHF" },
+    { value: "usd", text: "USD" },
+    { value: "eur", text: "EUR" },
+    { value: "gbp", text: "GBP" },
+    { value: "jpy", text: "JEN" },
   ];
 
   const outOptions = [
-    { value: "usd", text: "Dolar Amerykański" },
-    { value: "chf", text: "Frank Szwajcarski" },
-    { value: "eur", text: "Euro" },
-    { value: "gbp", text: "Funt Szterling" },
-    { value: "jpy", text: "Jen" },
+    { value: "usd", text: "USD" },
+    { value: "chf", text: "CHF" },
+    { value: "eur", text: "EUR" },
+    { value: "gbp", text: "GBP" },
+    { value: "jpy", text: "JEN" },
   ];
   const [inSelected, setInSelected] = useState(inOptions[0].value);
   const [outSelected, setOutSelected] = useState(outOptions[0].value);
@@ -48,12 +49,54 @@ const Currency = () => {
   const finalCash = (parseInt(startAmount) * inCurrency) / outCurrency;
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        margin: "10px",
+      }}
+    >
+      <p
+        style={{
+          fontWeight: "lighter",
+          fontSize: "1.2rem",
+
+
+          marginTop: "50px",
+          textAlign: "center",
+          color: "grey",
+        }}
+      >
+        KONWERTER WALUT
+      </p>
+
+      <span
+        style={{
+          fontSize: ".6rem",
+          marginTop: "30px",
+          marginBottom: "10px",
+          textAlign: "center",
+          color: "grey",
+        }}
+      >
+        PODAJ KWOTĘ
+      </span>
       <input
         type="number"
         value={startAmount}
         onChange={(e) => setStartAmuount(e.target.value)}
       ></input>
+      <span
+        style={{
+          fontSize: ".6rem",
+          marginTop: "20px",
+          marginBottom: "10px",
+          textAlign: "center",
+          color: "grey",
+        }}
+      >
+        WYBIERZ WALUTĘ POCZĄTKOWĄ
+      </span>
       <select
         value={inSelected}
         onChange={(el) => setInSelected(el.target.value)}
@@ -64,7 +107,19 @@ const Currency = () => {
           </option>
         ))}
       </select>
-      = {finalCash.toFixed(2)}
+
+      <span
+        style={{
+          fontSize: ".6rem",
+          marginTop: "20px",
+          marginBottom: "10px",
+          textAlign: "center",
+          color: "grey",
+        }}
+      >
+        WYBIERZ WALUTĘ KOŃCOWĄ
+      </span>
+
       <select
         value={outSelected}
         onChange={(el) => setOutSelected(el.target.value)}
@@ -75,6 +130,17 @@ const Currency = () => {
           </option>
         ))}
       </select>
+      <p
+        style={{
+          fontSize: "1.5rem",
+          marginTop: "30px",
+          marginBottom: "10px",
+          textAlign: "center",
+          color: "grey",
+        }}
+      >
+        {finalCash.toFixed(2)}
+      </p>
     </div>
   );
 };

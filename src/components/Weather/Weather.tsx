@@ -23,20 +23,14 @@ export const Weather = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
       let lat = position.coords.latitude;
-
       let lon = position.coords.longitude;
-
-      // console.log(lat, lon);
 
       axios
         .get(
           `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&${keyQuery}`
         )
         .then((data) => {
-          console.log(data);
-
           setCity(data.data.name);
-
           setTemp(data.data.main.temp);
           setHum(data.data.main.humidity);
           setClouds(data.data.weather[0].main);
