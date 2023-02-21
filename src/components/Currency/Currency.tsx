@@ -59,24 +59,21 @@ const Currency = () => {
           justifyContent: "center",
           marginTop: "50px",
           boxSizing: "border-box",
-          padding: "40px",
-
+          height: "50px",
           fontSize: "1.1rem",
-
+          alignItems: "center",
           textAlign: "center",
           color: "rgb(146, 146, 146)",
           margin: "5px",
-          height: "15vh",
         }}
       >
         KONWERTER WALUTOWY
       </span>
+
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-
-          height: "100vh",
         }}
       >
         <div
