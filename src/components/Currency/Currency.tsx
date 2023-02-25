@@ -1,6 +1,7 @@
 import axios from "axios";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { useState, useEffect } from "react";
+import CurrencySelector from "./CurrencySelector";
 
 const Currency = () => {
   const inOptions = [
@@ -47,6 +48,14 @@ const Currency = () => {
 
   const finalCash = (parseInt(startAmount) * inCurrency) / outCurrency;
 
+  const setFirstCurrency = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setInSelected(event.target.value);
+  };
+
+  const setSecondCurrency = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setOutSelected(event.target.value);
+  };
+
   return (
     <div>
       <input
@@ -54,27 +63,8 @@ const Currency = () => {
         value={startAmount}
         onChange={(e) => setStartAmuount(e.target.value)}
       ></input>
-      <select
-        value={inSelected}
-        onChange={(el) => setInSelected(el.target.value)}
-      >
-        {inOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.text}
-          </option>
-        ))}
-      </select>
-      = {finalCash.toFixed(2)}
-      <select
-        value={outSelected}
-        onChange={(el) => setOutSelected(el.target.value)}
-      >
-        {outOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.text}
-          </option>
-        ))}
-      </select>
+      <CurrencySelector onChange={setFirstCurrency} />= {finalCash.toFixed(2)}
+      <CurrencySelector onChange={setSecondCurrency} />
     </div>
   );
 };
